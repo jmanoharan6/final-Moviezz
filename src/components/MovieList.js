@@ -13,13 +13,13 @@ const MovieList = () => {
     useEffect(()=>{
 
         //Async operation GET
-        fetch ("http://localhost:3000/movielist")
+        fetch ("http://localhost:5000/movielist")
         .then((res)=>{
   
           return res.json()
         })
-        .then(json=>{    
-            setMovielists(json);
+        .then(data=>{    
+            setMovielists(data.body);
         })
         .catch((err)=>{
             console.log(`Error ${err}`);
@@ -36,7 +36,7 @@ const MovieList = () => {
               
             <div className="grid-item" key={movielist.id}>
                 <a href="/desc"onClick={changeState} > 
-                {<img src = {movielist.url} alt="imageSrc" />}
+                {<img src = {movielist.poster} alt="imageSrc" />}
 							</a> </div>
       
              

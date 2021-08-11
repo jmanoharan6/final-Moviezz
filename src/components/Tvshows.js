@@ -10,13 +10,13 @@ const Tvshows = () => {
     useEffect(()=>{
 
         //Async operation GET
-        fetch ("http://localhost:3000/tvshow")
+        fetch ("http://localhost:5000/tvshows")
         .then((res)=>{
   
           return res.json()
         })
-        .then(json=>{    
-            setTvShows(json);
+        .then(data=>{    
+            setTvShows(data.body);
         })
         .catch((err)=>{
             console.log(`Error ${err}`);
@@ -34,7 +34,7 @@ const Tvshows = () => {
             <CardGroup>
                 {tvshows.map((tvshow) => (
                 <Card className="moviesTab">
-                    <div id = "movieImg"><Card.Img variant="top" src={tvshow.url} alt="tv1"/>
+                    <div id = "movieImg" key={tvshow.id} ><Card.Img variant="top" src={tvshow.poster} alt="tv1"/>
                     </div>
                 </Card>
                 ))}

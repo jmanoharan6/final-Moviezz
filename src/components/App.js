@@ -32,13 +32,13 @@ function App() {
   useEffect(()=>{
 
     //Async operation GET
-    fetch ("http://localhost:3000/movielist")
+    fetch ("http://localhost:5000/movielist")
     .then((res)=>{
 
       return res.json()
     })
-    .then(json=>{    
-        setMovielists(json);
+    .then(data=>{    
+        setMovielists(data.body);
     })
     .catch((err)=>{
         console.log(`Error ${err}`);

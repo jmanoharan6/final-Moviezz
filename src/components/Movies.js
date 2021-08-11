@@ -7,13 +7,13 @@ const Movies = () => {
     useEffect(()=>{
 
         //Async operation GET
-        fetch ("http://localhost:3000/movie")
+        fetch ("http://localhost:5000/movies")
         .then((res)=>{
   
           return res.json()
         })
-        .then(json=>{    
-              setMovies(json);
+        .then(data=>{    
+              setMovies(data.body);
         })
         .catch((err)=>{
             console.log(`Error ${err}`);
@@ -33,7 +33,7 @@ const Movies = () => {
             <CardGroup>
                 {movies.map((movie) => (
                 <Card className="moviesTab">
-                    <div id = "movieImg"><Card.Img variant="top" src={movie.url} alt="tv1"/>
+                    <div id = "movieImg"  key={movie.id} ><Card.Img variant="top" src={movie.poster} alt="tv1"/>
                     </div>
                 </Card>
                 ))}

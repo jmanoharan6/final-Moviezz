@@ -115,7 +115,7 @@ const Footer = () => {
 			</div>
 		</div>
 	</footer>
-	<div class="footer-bottom">
+	<div className="footer-bottom">
 		Copyright © 2021, All Rights Reserved
 	</div>
     	</div>
